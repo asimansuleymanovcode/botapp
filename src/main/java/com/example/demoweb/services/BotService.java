@@ -25,4 +25,7 @@ public class BotService {
                 .mapToObj(i -> Bot.builder().from("from-" + i).to("to-" + i).build()).collect(Collectors.toList()));
     }
 
+    public Bot findById(Integer id) {
+        return botRepo.findById(id).get();
+    }
 }

@@ -4,6 +4,7 @@ import com.example.demoweb.models.Bot;
 import com.example.demoweb.services.BotService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +23,10 @@ public class DemoController {
     @GetMapping
     List<Bot> getAllBots(){
         return botService.getAllBots();
+    }
+
+    @GetMapping("/{id}")
+    Bot getById(@PathVariable Integer id){
+        return botService.findById(id);
     }
 }
